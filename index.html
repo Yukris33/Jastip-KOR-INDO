@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jastip Line & Friends Manager</title>
+
+    <!-- Google Font: Fredoka -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              fredoka: ['Fredoka', 'sans-serif'],
+            },
+            keyframes: {
+              fall: {
+                '0%': { transform: 'translateY(-10vh) rotate(0deg)', opacity: '1' },
+                '100%': { transform: 'translateY(105vh) rotate(360deg)', opacity: '0.2' },
+              },
+              pop: {
+                '0%': { transform: 'scale(0.3) rotate(0deg)', opacity: '1' },
+                '50%': { transform: 'scale(1.5) rotate(180deg)', opacity: '0.9' },
+                '100%': { transform: 'scale(2.2) rotate(360deg)', opacity: '0' },
+              }
+            },
+            animation: {
+              fall: 'fall 7s linear infinite',
+              pop: 'pop 0.5s ease-out forwards',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Fredoka', cursive, sans-serif;
+        background-color: #FFFDF0;
+        color: #451a03;
+      }
+
+      /* KURSOR KARAKTER DIPAKSA UNTUK SEMUA ELEMEN TERMASUK BUTTON, SELECT, INPUT, OPTION */
+      body.cursor-brown, body.cursor-brown *, body.cursor-brown select, body.cursor-brown option, body.cursor-brown button, body.cursor-brown input {
+        cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'><text y='20' font-size='20'>🐻</text></svg>"), auto !important;
+      }
+      body.cursor-cony, body.cursor-cony *, body.cursor-cony select, body.cursor-cony option, body.cursor-cony button, body.cursor-cony input {
+        cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'><text y='20' font-size='20'>🐰</text></svg>"), auto !important;
+      }
+      body.cursor-sally, body.cursor-sally *, body.cursor-sally select, body.cursor-sally option, body.cursor-sally button, body.cursor-sally input {
+        cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'><text y='20' font-size='20'>🐥</text></svg>"), auto !important;
+      }
+      body.cursor-choco, body.cursor-choco *, body.cursor-choco select, body.cursor-choco option, body.cursor-choco button, body.cursor-choco input {
+        cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'><text y='20' font-size='20'>🎀</text></svg>"), auto !important;
+      }
+
+      .click-particle {
+        position: fixed;
+        pointer-events: none;
+        z-index: 99999;
+        font-size: 24px;
+        transform: translate(-50%, -50%);
+        animation: pop 0.5s ease-out forwards;
+      }
+    </style>
+  </head>
+  <body class="font-fredoka select-none overflow-x-hidden cursor-brown">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

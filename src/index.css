@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --------------------------------------------------
+   1. FORCE KURSOR DENGAN OVERRIDE SELECT & INPUT OS
+   -------------------------------------------------- */
+
+/* Universal Reset Cursor untuk Seluruh Elemen Form */
+html, body, *, *::before, *::after, 
+button, input, select, option, label, a, div, span, form {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E🐰%3C/text%3E%3C/svg%3E"), auto !important;
+}
+
+/* Override Khusus Karakter Brown 🐻 */
+body.cursor-brown, body.cursor-brown *, 
+body.cursor-brown select, body.cursor-brown option, 
+body.cursor-brown button, body.cursor-brown input {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E🐻%3C/text%3E%3C/svg%3E"), auto !important;
+}
+
+/* Override Khusus Karakter Cony 🐰 */
+body.cursor-cony, body.cursor-cony *, 
+body.cursor-cony select, body.cursor-cony option, 
+body.cursor-cony button, body.cursor-cony input {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E🐰%3C/text%3E%3C/svg%3E"), auto !important;
+}
+
+/* Override Khusus Karakter Sally 🐥 */
+body.cursor-sally, body.cursor-sally *, 
+body.cursor-sally select, body.cursor-sally option, 
+body.cursor-sally button, body.cursor-sally input {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E🐥%3C/text%3E%3C/svg%3E"), auto !important;
+}
+
+/* Override Khusus Karakter Choco 🎀 */
+body.cursor-choco, body.cursor-choco *, 
+body.cursor-choco select, body.cursor-choco option, 
+body.cursor-choco button, body.cursor-choco input {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E🎀%3C/text%3E%3C/svg%3E"), auto !important;
+}
+
+/* --------------------------------------------------
+   2. KEYFRAMES ANIMASI SALJU / DAUN GUGUR & KLIK POP
+   -------------------------------------------------- */
+
+@keyframes fallAnimation {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+@keyframes popAnimation {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.6) rotate(180deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.4) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Partikel Daun/Salju Jatuh */
+.animate-falling-item {
+  position: fixed;
+  top: -50px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: fallAnimation linear infinite;
+}
+
+/* Partikel Letupan Klik */
+.click-particle-effect {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  font-size: 26px;
+  animation: popAnimation 0.5s ease-out forwards;
+}
+
+/* css for characters switching */
+
+
+.character-title {
+  margin: 0 0 12px;
+  color: #70452f;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.character-options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.character-button {
+  padding: 10px 14px;
+  border: 2px solid #ead8c8;
+  border-radius: 14px;
+  background: #fff;
+  color: #70452f;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.character-button:hover {
+  transform: translateY(-2px);
+  background: #fff0df;
+}
+
+.character-button.active {
+  border-color: #9b6244;
+  background: #f2d5bd;
+  box-shadow: 0 0 0 2px rgba(155, 98, 68, 0.12);
+}
+
+@media (max-width: 480px) {
+  .character-switch {
+    padding: 12px;
+  }
+
+  .character-options {
+    gap: 7px;
+  }
+
+  .character-button {
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+}
